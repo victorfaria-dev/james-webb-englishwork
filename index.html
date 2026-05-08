@@ -201,68 +201,79 @@
           <p class="lang-pt">
             Algumas imagens do telescópio e de suas descobertas.
           </p>
-          <a href="https://esawebb.org/images/" class="lang-pt">Todas as imagens</a>
-
-          
+          <a href="https://esawebb.org/images/" class="lang-pt gallery-link"
+            >Todas as imagens</a
+          >
 
           <!-- Inglês -->
           <p class="lang-en">
             Some images of the telescope and its discoveries.
           </p>
-          <a href="https://esawebb.org/images/" class="lang-en">All images</a>
+          <a href="https://esawebb.org/images/" class="gallery-link lang-en"
+            >All images</a
+          >
 
           <!-- Grid de imagens -->
           <div class="gallery-grid">
             <!-- Imagem 1 -->
             <img
+              loading="lazy"
               src="https://science.nasa.gov/wp-content/uploads/2023/06/webb-flickr-52259221868-30e1c78f0c-4k-jpg.webp"
               alt="Nebula image"
             />
 
             <!-- Imagem 2 -->
             <img
+              loading="lazy"
               src="https://cdn.esawebb.org/archives/images/screen/pillarsofcreation_composite.jpg"
               alt="Pillars of Creation image"
             />
 
             <!-- Imagem 3 -->
             <img
+              loading="lazy"
               src="https://news.northeastern.edu/wp-content/uploads/2022/07/1400.jpg?w=1024"
               alt="Three galaxies image"
             />
 
             <!-- Imagem 4 -->
             <img
+              loading="lazy"
               src="https://cdn.esawebb.org/archives/images/screen/potm2208a.jpg"
               alt="Phantom Galaxy image"
             />
 
             <!-- Imagem 5 -->
             <img
+              loading="lazy"
               src="https://cdn.esawebb.org/archives/images/screen/weic2608a.jpg"
               alt="Stars Forming image"
             />
 
             <!-- Imagem 6 -->
             <img
+              loading="lazy"
               src="https://cdn.esawebb.org/archives/images/screen/potm2509a.jpg"
               alt="Distant Galaxys images"
             />
 
             <!-- Imagem 7 -->
             <img
+              loading="lazy"
               src="https://assets.b9.com.br/wp-content/uploads/2025/03/Science_JWST_508012main_mirror40_raw_full.webp"
               alt="James Webb telescope image"
             />
 
             <!-- Imagem 8 -->
             <img
+              loading="lazy"
               src="https://i.metroimg.com/SdJj4Lw9HlnZl6q5wygDNbZ9CHyGs2gCfIWZ1nV72sY/w:900/q:85/f:webp/plain/https://images.metroimg.com/2025/09/01164834/james-webb-4.jpg"
               alt="James Webb telescope image"
             />
 
             <!-- Imagem 9 -->
             <img
+              loading="lazy"
               src="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2023/03/13/james_webb_1-sl3gcc3m2n8x.jpg"
               alt="James Webb telescope image"
             />
@@ -284,6 +295,17 @@
       <p class="lang-en">By Victor Faria.</p>
     </footer>
 
+    <!-- LIGHTBOX -->
+
+<div id="lightbox">
+
+  <button id="close-lightbox">
+    ✕
+  </button>
+
+  <img id="lightbox-image" src="" alt="Expanded image">
+
+</div>
     <script src="script.js"></script>
   </body>
 </html>
