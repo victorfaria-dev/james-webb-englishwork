@@ -361,7 +361,7 @@ article:hover {
 ========================= */
 
 .lang-pt {
-  display: none;
+    display: none;
 }
 
 .lang-en {
@@ -369,8 +369,30 @@ article:hover {
 }
 
 /* =========================
-   GALERIA
+GALERIA
 ========================= */
+/* =========================
+   LINK GALERIA
+========================= */
+
+.gallery-link{
+
+  margin-bottom: 2rem;
+
+  color: #f0c75e;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.gallery-link:hover{
+  transform: translateX(5px);
+
+  text-shadow: 0 0 10px #f0c75e;
+}
 
 .gallery-section {
   min-height: auto;
@@ -482,7 +504,7 @@ article:hover {
 #webb-follow {
   position: fixed;
 
-  width: 180px;
+  width: 100px;
 
   pointer-events: none;
 
@@ -503,7 +525,112 @@ article:hover {
 /* MOBILE */
 
 @media (max-width: 768px) {
-  #webb-follow {
-    width: 30px;
+
+  #webb-follow{
+    width: 90px;
+    opacity: 0.7;
   }
+
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+#lightbox{
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    radial-gradient(circle, rgba(10,15,30,0.96), rgba(0,0,0,0.98));
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: 0.4s;
+
+  z-index: 5000;
+
+  backdrop-filter: blur(10px);
+}
+
+/* ativo */
+
+#lightbox.active{
+  opacity: 1;
+
+  pointer-events: all;
+}
+
+/* imagem */
+
+#lightbox-image{
+  max-width: 88%;
+
+  max-height: 88vh;
+
+  border-radius: 24px;
+
+  transform:
+    scale(0.7)
+    rotate(-3deg);
+
+  transition: 0.45s ease;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.1),
+    0 0 80px rgba(240,199,94,0.25);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+}
+
+/* animação */
+
+#lightbox.active #lightbox-image{
+  transform:
+    scale(1)
+    rotate(0deg);
+}
+
+/* botão fechar */
+
+#close-lightbox{
+  position: absolute;
+
+  top: 30px;
+  right: 40px;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: rgba(255,255,255,0.08);
+
+  color: white;
+
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+#close-lightbox:hover{
+  transform: rotate(90deg) scale(1.1);
+
+  background: rgba(240,199,94,0.2);
 }
