@@ -7,35 +7,42 @@ const button = document.getElementById("translate-button");
 let currentLanguage = "en";
 
 button.addEventListener("click", () => {
-  const englishTexts = document.querySelectorAll(".lang-en");
-  const portugueseTexts = document.querySelectorAll(".lang-pt");
 
-  if (currentLanguage === "en") {
-    englishTexts.forEach((element) => {
-      element.style.display = "none";
-    });
+    const englishTexts = document.querySelectorAll(".lang-en");
+    const portugueseTexts = document.querySelectorAll(".lang-pt");
 
-    portugueseTexts.forEach((element) => {
-      element.style.display = "block";
-    });
+    if(currentLanguage === "en"){
 
-    button.textContent = "EN | PT";
+        englishTexts.forEach(element => {
+            element.style.display = "none";
+        });
 
-    currentLanguage = "pt";
-  } else {
-    englishTexts.forEach((element) => {
-      element.style.display = "block";
-    });
+        portugueseTexts.forEach(element => {
+            element.style.display = "block";
+        });
 
-    portugueseTexts.forEach((element) => {
-      element.style.display = "none";
-    });
+        button.textContent = "EN | PT";
 
-    button.textContent = "PT | EN";
+        currentLanguage = "pt";
+    }
 
-    currentLanguage = "en";
-  }
+    else{
+
+        englishTexts.forEach(element => {
+            element.style.display = "block";
+        });
+
+        portugueseTexts.forEach(element => {
+            element.style.display = "none";
+        });
+
+        button.textContent = "PT | EN";
+
+        currentLanguage = "en";
+    }
+
 });
+
 
 // ==========================
 // ANIMAÇÃO AO ROLAR
@@ -43,21 +50,23 @@ button.addEventListener("click", () => {
 
 const sections = document.querySelectorAll("section");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  {
-    threshold: 0.2,
-  },
-);
+const observer = new IntersectionObserver((entries) => {
 
-sections.forEach((section) => {
-  observer.observe(section);
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+
+    });
+
+},
+{
+    threshold: 0.2
+});
+
+sections.forEach(section => {
+    observer.observe(section);
 });
 
 // ==========================
@@ -73,20 +82,94 @@ let currentX = 0;
 let currentY = 0;
 
 document.addEventListener("mousemove", (event) => {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
+
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
 });
 
 // animação suave
 
-function animateWebb() {
-  currentX += (mouseX - currentX) * 0.08;
-  currentY += (mouseY - currentY) * 0.08;
+function animateWebb(){
 
-  webb.style.left = currentX + "px";
-  webb.style.top = currentY + "px";
+    currentX += (mouseX - currentX) * 0.08;
+    currentY += (mouseY - currentY) * 0.08;
 
-  requestAnimationFrame(animateWebb);
+    webb.style.left = currentX + "px";
+    webb.style.top = currentY + "px";
+
+    requestAnimationFrame(animateWebb);
+
 }
 
 animateWebb();
+
+// ==========================
+// LIGHTBOX PREMIUM
+// ==========================
+
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+
+const lightbox = document.getElementById("lightbox");
+
+const lightboxImage = document.getElementById("lightbox-image");
+
+const closeLightbox = document.getElementById("close-lightbox");
+
+// abrir
+
+galleryImages.forEach((image) => {
+
+  image.addEventListener("click", () => {
+
+    lightbox.classList.add("active");
+
+    lightboxImage.src = image.src;
+
+    document.body.style.overflow = "hidden";
+
+  });
+
+});
+
+// fechar botão
+
+closeLightbox.addEventListener("click", () => {
+
+  closeGallery();
+
+});
+
+// fechar fundo
+
+lightbox.addEventListener("click", (event) => {
+
+  if(event.target === lightbox){
+
+    closeGallery();
+
+  }
+
+});
+
+// ESC fecha
+
+document.addEventListener("keydown", (event) => {
+
+  if(event.key === "Escape"){
+
+    closeGallery();
+
+  }
+
+});
+
+// função
+
+function closeGallery(){
+
+  lightbox.classList.remove("active");
+
+  document.body.style.overflow = "auto";
+
+}
